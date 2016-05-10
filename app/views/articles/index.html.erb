@@ -1,0 +1,19 @@
+<h1>All articles</h1>
+
+<ol>
+<% @articles.each do |article| %>
+<h3>Article title</h3>
+<p> <%= article.title %></p>
+<p> <%= article.content %></p>
+
+<p> <%= link_to "Edit", edit_article_path(article),
+    data: { confirm: "Are you sure?" } %></p>
+
+<p> <%= link_to "Delete", article_path(article),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %></p>
+<% end %>
+</ol>
+
+<p><%= link_to "New article", new_article_path,
+    data: { confirm: "Create a new article?"} %></p>
